@@ -7,44 +7,51 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
-        <p>Co chcesz kupić</p>
+    <div class="full">
+        <p>Co chcesz kupić?</p>
         <div id="rodzjapaliwa">
-            <input type="radio" id="xropa" name="opcja">
+            <input type="radio" id="ropa" name="opcja">
             <label for="ropa">ropa</label>
-            <input type="radio" id="ybenzyna" name="opcja">
+            <input type="radio" id="benzyna" name="opcja">
             <label for="benzyna">benzyna</label>
         </div>
         <div>
-            <input type="number" name="opcja" id="litry" step="0.01">
+            <input type="number" id="litry" step="0.01">
         </div>
         <div>
             <button id="policz" onclick="matma()">wylicz</button>
         </div>
         <div>
             <label for="final">Pozostało do zapłacenia:</label>
-            <input type="text" name="final" id="final">
-        </div>  
-    </form>
-    <script>      
-        function matma()
-        {
-            ropa = 7.5;
-            benzyna = 6.7; 
-            if(document.getElementById("xropa").checked)
-            {
-                litry = document.getElementById("litry").value;
-                cena = 7.5 * litry;
+            <input type="text" id="final" readonly>
+        </div> 
+    </div> 
+    <script>
+        ropa = 7.5;
+        benzyna = 6.7;
+        
+        function matma() {
+            let litry = document.getElementById("litry").value;
+               
+            if(document.getElementById("benzyna").checked) {
+                let cena = benzyna * litry;
+                document.getElementById("final").value = cena;
+                
+            }
+            if (document.getElementById("ropa").checked) {
+                let cena = ropa * litry;
                 document.getElementById("final").value = cena;
             }
-            else(document.getElementById("ybenzyna").checked)
-            {
-                litry = document.getElementById("litry").value;
-                cena = 6.7 * litry;
-                document.getElementById("final").value = cena;
-            } 
         }    
     </script>
+    <style>
+        .full
+        {
+            width: 400px;
+            height: 200px;
+        }
+
+    </style>
 
 
     
