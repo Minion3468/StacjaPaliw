@@ -4,27 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>StacjBenzynowa</title>
+    <style>
+        body
+        {
+            background-color: yellow;
+            color: white; 
+            background-image: url('https://bi.im-g.pl/im/cf/8e/18/z25747919Q.jpg');
+        }
+        .rodzjapaliwa
+        {
+            display: inline-flex;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+            padding-top: 100px;
+        }
+        input[type="radio"]{display: none;margin: 0;}
+        .lopcja
+        {
+            padding: 8px 14px;
+            font-size: 14px;
+            font-family: sans-serif;
+            color: white;
+            background: #f00;
+            cursor: pointer;
+            transition-timing-function:linear;
+            font-size: 20px;
+            font-weight:500 ;
+        }
+        .lopcja:not(:last-of-type){border-right: 1px solid #c00;}
+        .opcja:checked + .lopcja {background: #c00;}
+        .full{text-align: center;margin: 0 auto;}
+        p{font-size: 40px;}
+        .final{padding-top: 25px;}
+        .policz{padding-top: 40px;}
+        .litry{padding-top: 5%;}
+        h3{font-size: 30px;   font-weight: bold;  padding-top: 10%;}
+    </style>
 </head>
 <body>
     <div class="full">
-        <p>Co chcesz kupić?</p>
+        <p>Jakim paliwem chcesz zatankować <br>swój bolid?</p>
         <div id="rodzjapaliwa">
-            <input type="radio" id="ropa" name="opcja">
-            <label for="ropa">ropa</label>
-            <input type="radio" id="benzyna" name="opcja">
-            <label for="benzyna">benzyna</label>
+            <input type="radio" id="ropa" class="opcja" name="opcja">
+            <label for="ropa" class="lopcja">ropa</label>
+            <input type="radio" id="benzyna" class="opcja" name="opcja">
+            <label for="benzyna" class="lopcja">benzyna</label>
         </div>
-        <div>
+        <div class="litry">
+            <p>Ile litrów potrzebujesz na trasie
+                <br>Napisz poniżej
+            </p>
+            <h4>(płatności dokonujemy tylko w PLN)</h4>
             <input type="number" id="litry" step="0.01">
         </div>
-        <div>
+        <div class="policz">
             <button id="policz" onclick="matma()">wylicz</button>
         </div>
-        <div>
+        <div class="final">
             <label for="final">Pozostało do zapłacenia:</label>
             <input type="text" id="final" readonly>
-        </div> 
+        </div>
+        <h3>Dziękujemy za zakupy na naszych stacjach!</h3> 
     </div> 
     <script>
         ropa = 7.5;
@@ -43,17 +85,6 @@
                 document.getElementById("final").value = cena;
             }
         }    
-    </script>
-    <style>
-        .full
-        {
-            width: 400px;
-            height: 200px;
-        }
-
-    </style>
-
-
-    
+    </script>   
 </body>
 </html>
